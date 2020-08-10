@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div>
+    <Header />
+    <HelloWorld  msg="Добро пожаловать в ToDo"/>
+  </div>  
 </template>
 
 <script>
-// @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+import {mapGetters} from 'vuex'
+import Header from '@/components/Header.vue'
+
 
 export default {
   name: 'Home',
+  computed: {
+    ...mapGetters([
+      'CATEGORY_CREATING'
+    ])
+  },
   components: {
-    HelloWorld
+    HelloWorld, Header
   }
 }
 </script>
